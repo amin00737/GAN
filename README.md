@@ -17,3 +17,24 @@ The model is trained on the Fashion-MNIST dataset:
 10 clothing categories
 
 Images are normalized to the range [-1, 1] to match the generator’s tanh output activation.
+
+Model Architecture
+Generator
+
+Input: 100-dimensional noise vector (latent_dim = 100)
+
+Fully connected layer → reshape to 7×7×256
+
+Conv2DTranspose blocks with:
+
+Batch Normalization
+
+LeakyReLU activation
+
+Output layer:
+
+Conv2DTranspose (1 channel)
+
+tanh activation
+
+The generator progressively upsamples noise into 28×28 grayscale images.
